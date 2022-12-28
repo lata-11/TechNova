@@ -1,0 +1,45 @@
+.pattern-project{
+    width: 100%;
+    height: 90vh;
+    position: relative;
+}
+.first-section{
+
+    margin-bottom: 10%;
+
+}
+.content-1{
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    text-align: center;
+
+}
+.content-1 h2 ,h5{
+    color: white;
+}
+.event-content{
+    display: grid;
+    place-items: center;
+    color: white;
+}
+.pattern-bg{
+    width: 100%;
+    height: 20vh;
+}
+.card-1{
+    height: 29vh;
+}
+.card--1{
+    background-color: #1b2121 ;
+}
+.card--2{
+    background-color: #1b2323 ;
+}
+.card--3{
+    background-color: #292d2e;
+}
+.register{
+    display: grid;
+    grid-template-columns: auto auto;
+}

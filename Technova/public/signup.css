@@ -1,0 +1,93 @@
+
+/* universal */
+*
+{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #121617;
+}
+
+.login-card{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: white;
+    margin-left: 13%;
+    margin-right: 13%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+   height: 80vh;
+  
+    
+}
+.home-btn{
+    text-decoration: none;
+    color: white;
+    margin-right: 80%;
+    
+}
+.dots{
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    width: 20vw;
+    height: 25vh;
+}
+.vector{
+    width: 34vw;
+    height: 55vh;
+    position: relative;
+    top:25%;
+}
+.login-image{
+    display: grid;
+    place-items: center;
+    
+}
+.login-image h4{
+    color: white;
+   margin-top: 15%;
+}
+.login-form{
+    display: grid;
+    place-items: center;
+}
+.outer-login-image{
+    background-color:#292d2e ;
+    padding: 4%;
+
+}
+#name{
+    padding: 1.6%;
+    width: 20vw;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+#email{
+    padding: 1.6%;
+    width: 20vw;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+#password{
+    padding: 1.6%;
+    width: 20vw;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+.button{
+    padding: 3%;
+    margin-left: 5%;
+    width: 18vw;
+}
+.or{
+    margin-left: 48%;
+    margin-top: 3%;
+
+}
+.create
+{
+    background-color: #121617;
+    color: white;
+}
