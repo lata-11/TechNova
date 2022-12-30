@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign up</title>
+    <title>Login</title>
 
     <!-- CSS only -->
     <link
@@ -56,11 +56,9 @@
         </div>
     </div>
         <div class="login-form">
-          <h3>Create your account</h3>
-          <form action="/signup" method="post">
-            <label for="name">Full Name</label><br />
-            <input type="text" name="name" id="name" placeholder="Full name" />
-            <br />
+          <h3>Log in your account</h3>
+          <form action="/login" method="post">
+           
           
             <label for="email">Email Address</label><br />
             <input type="text" name="email" id="email" placeholder="Email" />
@@ -70,14 +68,10 @@
             <input type="password" name="password"id="password" placeholder="Password" />
             <br/>
            <br/>
-            <button type="submit" class="button create">Create your account</button>
+            <button type="submit" class="button create">Log in</button>
 
-             <p class="or">or</p>
-
-             <button class="button google-signup">Signup with google</button>
           </form>
-          <form>
-          <p>Already have an account? <a href="/login">Sign in</a></p>
+          <p>Don't have an account? <a href="/signup">Sign up</a></p>
         </div>
       </div>
     </div>

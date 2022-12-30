@@ -1,71 +1,112 @@
-const express= require('express');
-const app =express();
-const path =require('path');
-const mongoose =require('mongoose');
-const bcrypt =require('bcrypt');
-const bodyparser = require('body-parser');
-const User =require(path.resolve('./models/signup'));
-mongoose.connect('mongodb://localhost:27017/technova', {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{
-    console.log('connected to db successfully')
-})
-    .catch(err=>{
-        console.log("errorrrrrrrrrrrrr");
-        console.log(err);
-    })
+const express = require("express");
+const app = express();
+const path = require("path");
+const mongoose = require("mongoose");
+const session = require("express-session");
+const flash = require("connect-flash");
+const bcrypt = require("bcrypt");
+const bodyparser = require("body-parser");
+const User = require(path.resolve("./models/signup"));
+mongoose
+  .connect("mongodb://localhost:27017/technova", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("connected to db successfully");
+  })
+  .catch((err) => {
+    console.log("errorrrrrrrrrrrrr");
+    console.log(err);
+  });
 
-const {v4 : uuid} = require('uuid');
+const { v4: uuid } = require("uuid");
 uuid();
 
-app.set('view engine','ejs');
+app.set("view engine", "ejs");
 
-
-app.use(express.static('public'));
-app.use(bodyparser.urlencoded({extended:false}))
-app.use(bodyparser.json())
-app.use(express.urlencoded({extended: true}));
+app.use(express.static("public"));
+app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); //for sending json
+app.use(session({ secret: "dashboardSession" }));
+app.use(flash());
 
+const requireLogin = (req, res, next) => {
+  if (!req.session.user_id) {
+    return res.redirect("/login");
+  }
+  next();
+};
 
+app.get("/", (req, res) => {
+  res.render("home");
+});
+app.get("/home", (req, res) => {
+  res.render("home");
+});
+app.get("/signup", (req, res) => {
+  res.render("signup");
+});
+app.get("/dashboard", requireLogin, (req, res) => {
+  res.render("dashboard");
+});
 
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+app.post("/login", async (req, res) => {
+  try{
+  const { email, password } = req.body;
+  const user = await User.findOne({ email });
+  const ValidPassword = await bcrypt.compare(password, user.password);
+  if (ValidPassword) {
+    req.session.user_id = user._id;
+    res.redirect("/dashboard");
+  } else {
+    res.redirect("/login");
+  }}
+  catch (e) {
+    req.flash("error", e.message);
+    res.redirect("/login");}
+});
 
-app.get('/', (req,res)=>{
-    res.render('home');
+app.get("/logout", (req, res) => {
+  req.session.user_id = null;
+  res.redirect("/login");
+
+});
+app.get("/dashboard/:id", requireLogin, async (req,res)=>{
+    const id = req.params.id;
+    const user= await User.findOne({ id});
+    res.render("dashboard", { user });
 })
-app.get('/home',(req , res)  => {
-   res.send("response");
-})
-app.get('/signup',(req,res)=>{
-    res.render('signup');
-})
-app.get('/dashboard',(req,res)=>{
-    res.render('dashboard');
-})
-app.post('/signup',(req,res)=>{
-    res.redirect('dashboard');
-})
 
 
-
-app.post('/signup', async (req,res)=>{
-    const {name, email, password}= req.body;
-    console.log(req.body);
+app.post("/signup", async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
     const hash = await bcrypt.hash(password, 12);
-    const user =new User ({
-        name,
-        email,
-        password: hash,
+    const user = new User({
+      name,
+      email,
+      password: hash,
     });
-    
+
     await user.save();
-    console.log(user);
-    res.redirect('dashboard');
-})
-app.post('/home', (req,res)=>{
-    res.send("post request");
-})
+    req.session.user_id = user._id;
+    req.flash("success", "Successfully registered");
+    res.redirect("dashboard");
+  } catch (e) {
+    req.flash("error", e.message);
+    res.redirect("/signup");
+  }
+});
+app.post("/home", (req, res) => {
+  res.redirect("/home");
+});
 
-
-
-app.listen(3000, ()=>{
-    console.log("Listening on port 3000");
-})
+app.listen(3000, () => {
+  console.log("Listening on port 3000");
+});

@@ -92,6 +92,42 @@ body{
 .part-3-text >h5{
     color: white;
 }
+.card-body{
+    padding: 12%;
+}
+.participate{
+    color: white;
+    margin-top: 5%;
+    margin-bottom: 5%;
+   
+}
+.register-btn{
+    padding: 3%;
+    padding-left: 6%;
+    padding-right: 6%;
+    margin-top: 6%;
+    margin-left: 30%;
+    
+    background-image: linear-gradient(#00f8e6, #00d7fa);
+   
+}
+.card-title{
+    color: white;
+}
+.ticket-list{
+    color: white;
+    margin-left: -3%;
+}
+.card-home-1{
+    background-color: #1b2121 ;
+
+}
+.card-home-2{
+    background-color: #1b2323 ;
+}
+.card-home-3{
+    background-color: #292d2e;
+}
 /*part-4*/
 .text-part-4 h3 {
     color: white;

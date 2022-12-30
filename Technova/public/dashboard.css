@@ -1,0 +1,13 @@
+.event-card{
+    margin-top: 5%;
+}
+.Your-event{
+    margin-top:5%;
+}
+.your-event-header{
+    display: grid;
+    place-items: center;
+}
+.your-event-header > h2{
+    color: white;
+}
