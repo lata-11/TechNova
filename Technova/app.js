@@ -57,32 +57,32 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 app.post("/login", async (req, res) => {
-  try{
-  const { email, password } = req.body;
-  const user = await User.findOne({ email });
-  const ValidPassword = await bcrypt.compare(password, user.password);
-  if (ValidPassword) {
-    req.session.user_id = user._id;
-    res.redirect("/dashboard");
-  } else {
-    res.redirect("/login");
-  }}
-  catch (e) {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
+    const ValidPassword = await bcrypt.compare(password, user.password);
+    if (ValidPassword) {
+      req.session.user_id = user._id;
+      const id = user.name;
+      res.redirect(`/dashboard/${id}`);
+    } else {
+      res.redirect("/login");
+    }
+  } catch (e) {
     req.flash("error", e.message);
-    res.redirect("/login");}
+    res.redirect("/login");
+  }
 });
 
 app.get("/logout", (req, res) => {
   req.session.user_id = null;
   res.redirect("/login");
-
 });
-app.get("/dashboard/:id", requireLogin, async (req,res)=>{
-    const id = req.params.id;
-    const user= await User.findOne({ id});
-    res.render("dashboard", { user });
-})
-
+app.get("/dashboard/:id", requireLogin, async (req, res) => {
+  const id = req.params.id;
+  const user = await User.findOne({ id });
+  res.render("dashboard", { user });
+});
 
 app.post("/signup", async (req, res) => {
   try {
