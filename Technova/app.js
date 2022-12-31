@@ -7,6 +7,7 @@ const flash = require("connect-flash");
 const bcrypt = require("bcrypt");
 const bodyparser = require("body-parser");
 const User = require(path.resolve("./models/signup"));
+const Ticket = require(path.resolve("./models/tickets"));
 mongoose
   .connect("mongodb://localhost:27017/technova", {
     useNewUrlParser: true,
@@ -49,26 +50,28 @@ app.get("/home", (req, res) => {
 app.get("/signup", (req, res) => {
   res.render("signup");
 });
-app.get("/dashboard", requireLogin, (req, res) => {
+/*app.get("/dashboard", requireLogin, (req, res) => {
   res.render("dashboard");
-});
+});*/
 
 app.get("/login", (req, res) => {
   res.render("login");
 });
 app.post("/login", async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email });
-    const ValidPassword = await bcrypt.compare(password, user.password);
-    if (ValidPassword) {
-      req.session.user_id = user._id;
-      const id = user.name;
-      res.redirect(`/dashboard/${id}`);
-    } else {
-      res.redirect("/login");
-    }
-  } catch (e) {
+
+  try{
+  const { email, password } = req.body;
+  const user = await User.findOne({ email });
+  const ValidPassword = await bcrypt.compare(password, user.password);
+  if (ValidPassword) {
+    req.session.user_id = user._id;
+    const id =user.name;
+    res.redirect(`/${id}/dashboard`);
+  } else {
+    res.redirect("/login");
+  }}
+  catch (e) {
+
     req.flash("error", e.message);
     res.redirect("/login");
   }
@@ -78,10 +81,34 @@ app.get("/logout", (req, res) => {
   req.session.user_id = null;
   res.redirect("/login");
 });
-app.get("/dashboard/:id", requireLogin, async (req, res) => {
-  const id = req.params.id;
-  const user = await User.findOne({ id });
-  res.render("dashboard", { user });
+
+app.get("/:id/dashboard", requireLogin, async (req,res)=>{
+    const id = req.params.id;
+    const user= await User.findOne({ id});
+    res.render("dashboard", { user });
+})
+app.get("/:id/book", requireLogin, async (req,res)=>{
+    const id = req.params.id;
+    const user= await User.findOne({ id});
+    res.render("ticket", {user});
+})
+
+app.post("/:id/book", requireLogin, async(req,res)=>{
+    try{
+        const id = req.params.id;
+        const user= await User.findOne({ id});
+        const {Email, tel, group, country,institute} =req.body;
+        const ticket_booked =new Ticket({
+            Email,tel,group,country,institute
+        });
+        await ticket_booked.save();
+      
+        res.redirect(`/${id}/dashboard`,{user})
+    }catch (e) {
+        req.flash("error", e.message);
+        res.render("login");
+    }
+
 });
 
 app.post("/signup", async (req, res) => {
