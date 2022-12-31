@@ -29,9 +29,9 @@
       crossorigin="anonymous"
     ></script>
 
-    <link href="index.css" rel="stylesheet" />
-    <link href="dashboard.css" rel="stylesheet" />
-    <link href="event.css" rel="stylesheet" />
+    <link href="./../index.css" rel="stylesheet" />
+    <link href="./../dashboard.css" rel="stylesheet" />
+    <link href="./../event.css" rel="stylesheet" />
     <script
       src="https://kit.fontawesome.com/8d914b3d7d.js"
       crossorigin="anonymous"
@@ -43,7 +43,7 @@
     <div class="nav-bar">
       <ul>
         <li>TechNova</li>
-        <li>Hello Name</li>
+        <li>Hello <%=user.name%></li>
         <li>Conatct us</li>
         <li>
           <a href="/logout">Logout</a>
@@ -55,7 +55,7 @@
       <div class="your-event-header">
         <h2>Your Booked tickets</h2>
       </div>
-      
+
     </div>
     <!--part-2-->
     <div class="event-card">
@@ -67,7 +67,7 @@
         <div class="card card--1">
           <img
             class="card-img-top card-1"
-            src="./images/mic.jpeg"
+            src="./../images/mic.jpeg"
             alt="Card image cap"
           />
           <div class="card-body">
@@ -83,14 +83,14 @@
               <p class="card-text">
                 <small class="text-muted">120 tickets left</small>
               </p>
-              <button>Register</button>
+              <button class="register-btn">Book</button>
             </div>
           </div>
         </div>
         <div class="card card--2">
           <img
             class="card-img-top"
-            src="./images/robot.jpeg"
+            src="./../images/robot.jpeg"
             alt="Card image cap"
           />
           <div class="card-body">
@@ -106,14 +106,14 @@
               <p class="card-text">
                 <small class="text-muted">120 tickets left</small>
               </p>
-              <button>Register</button>
+              <button class="register-btn">Book</button>
             </div>
           </div>
         </div>
         <div class="card card--3">
           <img
             class="card-img-top"
-            src="./images/valorant.jpeg"
+            src="./../images/valorant.jpeg"
             alt="Card image cap"
           />
           <div class="card-body">
@@ -129,7 +129,7 @@
               <p class="card-text">
                 <small class="text-muted">120 tickets left</small>
               </p>
-              <button>Register</button>
+              <button class="register-btn">Book </button>
             </div>
           </div>
         </div>
