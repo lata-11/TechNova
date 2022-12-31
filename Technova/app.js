@@ -58,6 +58,7 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 app.post("/login", async (req, res) => {
+
   try{
   const { email, password } = req.body;
   const user = await User.findOne({ email });
@@ -70,15 +71,17 @@ app.post("/login", async (req, res) => {
     res.redirect("/login");
   }}
   catch (e) {
+
     req.flash("error", e.message);
-    res.redirect("/login");}
+    res.redirect("/login");
+  }
 });
 
 app.get("/logout", (req, res) => {
   req.session.user_id = null;
   res.redirect("/login");
-
 });
+
 app.get("/:id/dashboard", requireLogin, async (req,res)=>{
     const id = req.params.id;
     const user= await User.findOne({ id});
@@ -105,6 +108,7 @@ app.post("/:id/book", requireLogin, async(req,res)=>{
         req.flash("error", e.message);
         res.render("login");
     }
+
 });
 
 app.post("/signup", async (req, res) => {
