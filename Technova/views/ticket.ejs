@@ -70,29 +70,27 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <input
-                              class="form-control"
-                              type="text"
-                              name="group"
-                              placeholder="Enter group name"
-                            />
-                            <span class="form-label">Group name</span>
-                          </div>
+                      <div class="form-group">
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="group"
+                          placeholder="Enter group name"
+                        />
+                        <span class="form-label">Group name</span>
+                      </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <input
-                              class="form-control"
-                              type="text"
-                              name="institute"
-                              placeholder="Enter institute name"
-                            />
-                            <span class="form-label">Institute name</span>
-                          </div>
+                      <div class="form-group">
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="institute"
+                          placeholder="Enter institute name"
+                        />
+                        <span class="form-label">Institute name</span>
+                      </div>
                     </div>
-                    
-                      
                   </div>
                   <div class="row">
                     <div class="col-md-6">
@@ -121,7 +119,7 @@
                   <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
-                        <select class="form-control" required>
+                        <select class="form-control" name="eventname" required>
                           <option value="" selected hidden>Choose event</option>
                           <option>Art room</option>
                           <option>Robo kart</option>
@@ -133,8 +131,15 @@
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
-                        <select class="form-control" required>
-                          <option value="" selected hidden>no of tickets</option>
+                        <select
+                          class="form-control"
+                          name="numberOfTicket"
+                          r
+                          equired
+                        >
+                          <option value="" selected hidden>
+                            no of tickets
+                          </option>
                           <option>1</option>
                           <option>2</option>
                           <option>3</option>
@@ -144,19 +149,19 @@
                       </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group">
-                            <input
-                              class="form-control"
-                              type="text"
-                              placeholder="Total price"
-                            />
-                            <span class="form-label">Total price</span>
-                          </div>
+                      <div class="form-group">
+                        <input
+                          class="form-control"
+                          type="text"
+                          placeholder="Total price"
+                        />
+                        <span class="form-label">Total price</span>
+                      </div>
                     </div>
                   </div>
-                  
+
                   <div class="form-btn">
-                    <button class="submit-btn">Book Now</button>
+                    <button type="submit" class="submit-btn">Book Now</button>
                   </div>
                 </form>
               </div>
