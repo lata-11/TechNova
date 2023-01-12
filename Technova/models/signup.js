@@ -1,4 +1,5 @@
 const mongoose =require('mongoose');
+const Ticket = require('./tickets');
 
 const SignupSchema = new mongoose.Schema({
     name: {
@@ -12,7 +13,13 @@ const SignupSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    tickets:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Ticket',
+        }
+    ]
 });
 
 module.exports = mongoose.model('User',SignupSchema);
