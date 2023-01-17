@@ -50,28 +50,26 @@ app.get("/home", (req, res) => {
 app.get("/signup", (req, res) => {
   res.render("signup");
 });
-/*app.get("/dashboard", requireLogin, (req, res) => {
+app.get("/dashboard", requireLogin, (req, res) => {
   res.render("dashboard");
-});*/
+});
 
 app.get("/login", (req, res) => {
   res.render("login");
 });
 app.post("/login", async (req, res) => {
-
-  try{
-  const { email, password } = req.body;
-  const user = await User.findOne({ email });
-  const ValidPassword = await bcrypt.compare(password, user.password);
-  if (ValidPassword) {
-    req.session.user_id = user._id;
-    const id =user.name;
-    res.redirect(`/${id}/dashboard`);
-  } else {
-    res.redirect("/login");
-  }}
-  catch (e) {
-
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
+    const ValidPassword = await bcrypt.compare(password, user.password);
+    if (ValidPassword) {
+      req.session.user_id = user._id;
+      const id = user.name;
+      res.redirect(`/${id}/dashboard`);
+    } else {
+      res.redirect("/login");
+    }
+  } catch (e) {
     req.flash("error", e.message);
     res.redirect("/login");
   }
@@ -129,6 +127,10 @@ app.post("/signup", async (req, res) => {
     await user.save();
     req.session.user_id = user._id;
     req.flash("success", "Successfully registered");
+    // const registeredUser = await User.findOne({ name });
+    // res.render("dashboard", { user });
+    id = name;
+    res.redirect(`/${id}/dashboard`);
     res.redirect("/login");
   } catch (e) {
     req.flash("error", e.message);

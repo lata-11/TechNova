@@ -1,0 +1,9 @@
+<!-- <div class="booked-tickets"> -->
+          <!-- <%=tickets.forEach(ticket)%>  -->
+          <!-- <%={%> -->
+          <div class="ticket-container">
+            <div class="heading"><%=ticket.eventname%></div>
+            <div class="number-of-ticket"><%=ticket.numberOfTicket%></div> -->
+          <!-- </div> -->
+          <!-- <%=}%> -->
+        </div>
