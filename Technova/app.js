@@ -84,12 +84,17 @@ app.get("/logout", (req, res) => {
 
 app.get("/:id/dashboard", requireLogin, async (req,res)=>{
     const id = req.params.id;
-    const user= await User.findOne({ id});
+    const user= await User.findOne({ name:id});
+    if(req.session.user_id ==user._id)
     res.render("dashboard", { user });
+    else
+    {
+      res.send("Permission denied");
+    }
 })
 app.get("/:id/book", requireLogin, async (req,res)=>{
     const id = req.params.id;
-    const user= await User.findOne({ id});
+    const user= await User.findOne({name: id});
     res.render("ticket", {user});
 })
 
@@ -103,7 +108,7 @@ app.post("/:id/book", requireLogin, async(req,res)=>{
         });
         await ticket_booked.save();
       
-        res.redirect(`/${id}/dashboard`,{user})
+        res.redirect(`/${id}/dashboard`)
     }catch (e) {
         req.flash("error", e.message);
         res.render("login");
@@ -124,7 +129,7 @@ app.post("/signup", async (req, res) => {
     await user.save();
     req.session.user_id = user._id;
     req.flash("success", "Successfully registered");
-    res.redirect("dashboard");
+    res.redirect("/login");
   } catch (e) {
     req.flash("error", e.message);
     res.redirect("/signup");
