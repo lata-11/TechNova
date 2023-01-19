@@ -82,6 +82,8 @@ app.get("/logout", (req, res) => {
 
 app.get("/:id/dashboard", requireLogin, async (req, res) => {
   const id = req.params.id;
+  console.log(req.session);
+  console.log(session);
   const user = await User.findOne({ name: id });
   res.render("dashboard", { user });
 });
