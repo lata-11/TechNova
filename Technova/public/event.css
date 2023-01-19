@@ -44,3 +44,10 @@
     display: grid;
     grid-template-columns: auto auto;
 }
+.inactive1{
+   display: none;
+}
+
+.active1{
+    visibility: visible;
+}

@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TechNova</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
     <!-- CSS only -->
     <link
@@ -53,15 +54,88 @@
     <!--part-1-->
     <div class="Your-event">
       <div class="your-event-header">
-        <h2>Your Booked tickets</h2>
-        
+        <button class="booked_tickets">View your Booked tickets &rarr;</button>
       </div>
     </div>
+    <div class="my-tickets">
+      <div class="card-deck">
+        <div class="card card--1">
+          <img
+            class="card-img-top card-1"
+            src="./../images/mic.jpeg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Art room</h5>
+            <p class="card-text">
+              Cultural events are mainly related to art, culture, or values.
+              They last from day to week to spread and cultivate cultural
+              themes. They are usually executed by corporations or cultural
+              groups. And many companies specialize in the promotional marketing
+              of those events.
+            </p>
+            <div class="register">
+              <p class="card-text">
+                <small class="text-muted">120 tickets left</small>
+              </p>
+              <button class="register-btn">Book</button>
+            </div>
+          </div>
+        </div>
+        <div class="card card--2">
+          <img
+            class="card-img-top"
+            src="./../images/robot.jpeg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Robo-Kart</h5>
+            <p class="card-text">
+              Robo-Kart is a catalyst for ambitious minds ready to explore the
+              ocean of opportunities. We inspire and build youngsters’ interest
+              in science and technology by engaging them in project based
+              exciting learning sessions by experts, cross border networking
+              platform to share knowledge and experience.
+            </p>
+            <div class="register">
+              <p class="card-text">
+                <small class="text-muted">120 tickets left</small>
+              </p>
+              <button class="register-btn">Book</button>
+            </div>
+          </div>
+        </div>
+        <div class="card card--3">
+          <img
+            class="card-img-top"
+            src="./../images/valorant.jpeg"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Game-way</h5>
+            <p class="card-text">
+              Nothing brings gamers together like a bit of competition. Whether
+              its World of Warcraft or the latest release of Mario Kart, these
+              games engender amazing amounts of community and togetherness. The
+              esports craze has inspired some of the most heated competitions
+              the world has ever seen.
+            </p>
+            <div class="register">
+              <p class="card-text">
+                <small class="text-muted">120 tickets left</small>
+              </p>
+              <button class="register-btn">Book</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
     <!--part-2-->
     <div class="event-card">
       <div class="event-content">
         <h2>You may like to book more tickets</h2>
-        <h5>Register now and book your tickets to TechNova!</h5>
+        <h5>Hurry up few seats remaining for TechNova!</h5>
       </div>
       <div class="card-deck">
         <div class="card card--1">
@@ -136,5 +210,12 @@
       </div>
     </div>
     <!--part-3-->
+    <script>
+      $(document).ready(function(){
+        $(".booked_tickets").click(function(){
+          $(".my-tickets").toggle();
+        });
+      });
+      </script>
   </body>
 </html>

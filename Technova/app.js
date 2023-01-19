@@ -99,18 +99,37 @@ app.get("/:id/book", requireLogin, async (req,res)=>{
 app.post("/:id/book", requireLogin, async(req,res)=>{
     try{
         const id = req.params.id;
-        const user= await User.findOne({ id});
-        const {Email, tel, group, country,institute} =req.body;
+        const user= await User.findOne({name: id});
+        const {Email, tel, group, country,institute, numberOfTicket, eventname} =req.body;
         const ticket_booked =new Ticket({
-            Email,tel,group,country,institute
+            Email,tel,group,country,institute, numberOfTicket, eventname
         });
         await ticket_booked.save();
-      
+        console.log("hello");
         res.redirect(`/${id}/dashboard`)
     }catch (e) {
         req.flash("error", e.message);
+        console.log(e);
         res.render("login");
     }
+
+});
+app.post("/:id/booked_ticket", requireLogin, async(req,res)=>{
+  try{
+      const id = req.params.id;
+      const user= await User.findOne({name: id});
+      const {Email, tel, group, country,institute, numberOfTicket, eventname} =req.body;
+      const ticket_booked =new Ticket({
+          Email,tel,group,country,institute, numberOfTicket, eventname
+      });
+      await ticket_booked.save();
+      console.log("hello");
+      res.redirect(`/${id}/dashboard`)
+  }catch (e) {
+      req.flash("error", e.message);
+      console.log(e);
+      res.render("login");
+  }
 
 });
 
@@ -131,7 +150,7 @@ app.post("/signup", async (req, res) => {
     // res.render("dashboard", { user });
     id = name;
     res.redirect(`/${id}/dashboard`);
-    res.redirect("/login");
+    
   } catch (e) {
     req.flash("error", e.message);
     res.redirect("/signup");
