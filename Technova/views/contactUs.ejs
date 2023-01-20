@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Contact Us</title>
 
     <!-- CSS only -->
     <link
@@ -35,7 +35,7 @@
       crossorigin="anonymous"
     ></script> -->
 
-    <link href="signup.css" rel="stylesheet" />
+    <link href="contactUs.css" rel="stylesheet" />
     <script
       src="https://kit.fontawesome.com/8d914b3d7d.js"
       crossorigin="anonymous"
@@ -43,44 +43,35 @@
     <link href="/dist/output.css" rel="stylesheet" />
   </head>
   <body>
-    <!--login-page-start-->
-    <div class="login">
-      <div class="login-card">
-        <div class="outer-login-image">
-          <div class="login-image">
-            <a class="home-btn" href="index.html">Home</a>
-            <img class="dots" src="./images/Dot-PNG-HD.png" />
-            <img class="vector" src="./images/app-login-5188522-4346990.webp" />
-            <h4>Welcome to TechNova</h4>
-          </div>
+    <div class="contact-us">
+      <div class="contact-us-content">
+        <div class="contact-img">
+          <img src="./images/contact-mail.png" alt="contact" class="image" />
+          <p>
+            If you have question or just want to get touch, use the form below.
+            We look forward to hear from you
+          </p>
         </div>
-        <div class="login-form">
-          <div class="home home-btn">
-            <a href="/" class="new-home-btn">&larr;Home</a>
-          </div>
-          <h3>Log in your account</h3>
-          <form action="/login" method="post">
-            <label for="email">Email Address</label><br />
-            <input type="text" name="email" id="email" placeholder="Email" />
+        <div class="contact-form">
+          <h3>Contact Us</h3>
+          <form class="form-1">
+            <input type="text" id="name" name="name" placeholder="Your Name" />
             <br />
-
-            <label for="password">Enter password</label><br />
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-            />
+            <input type="email" id="email" placeholder="Your Email" />
             <br />
+            <textarea
+              id="message"
+              name="message"
+              rows="7"
+              placeholder="message"
+            ></textarea>
             <br />
-            <div class="create-btn">
-              <button type="submit" class="button create">Log in</button>
+            <div class="contact-btn">
+              <button type="button" class="btn btn-secondary">Secondary</button>
             </div>
           </form>
-          <p>Don't have an account? <a href="/signup">Sign up</a></p>
         </div>
       </div>
     </div>
-    <script src="./js/signup.js"></script>
   </body>
 </html>
