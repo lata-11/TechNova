@@ -48,6 +48,7 @@ body{
 .part-1-img{
    width: 98.9vw;
    height: 90vh;
+   filter: brightness(50%);
 
 }
 .part-1{
@@ -76,6 +77,22 @@ body{
 .car-3-img {
     width: 30vw;
     height: 32vh;
+}
+.carousel-control-prev{
+    top:170vh;
+    left: 62%;
+    background-color: linear-gradient(#00f8e6, #00d7fa);
+   
+}
+.carousel-control-next{
+    top:170vh;
+    left: 72%;
+    background-image: linear-gradient(#00f8e6, #00d7fa);
+   
+}
+.part-2-text p{
+    margin-top: 3%;
+    margin-right: 4%;
 }
 /*part-3*/
 .card-deck {
@@ -107,6 +124,16 @@ body{
    
 }
 .register-btn{
+    padding: 3%;
+    padding-left: 6%;
+    padding-right: 6%;
+    margin-top: 6%;
+    margin-left: 30%;
+    
+    background-image: linear-gradient(#00f8e6, #00d7fa);
+   
+}
+.booked-btn{
     padding: 3%;
     padding-left: 6%;
     padding-right: 6%;

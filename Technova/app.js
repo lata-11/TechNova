@@ -80,51 +80,47 @@ app.get("/logout", (req, res) => {
   res.redirect("/login");
 });
 
-app.get("/:id/dashboard", requireLogin, async (req, res) => {
-  const id = req.params.id;
-  console.log(req.session);
-  console.log(session);
-  const user = await User.findOne({ name: id });
-  res.render("dashboard", { user });
-});
-app.get("/:id/book", requireLogin, async (req, res) => {
-  const id = req.params.id;
-  const user = await User.findOne({ id });
-  res.render("ticket", { user });
-});
-
-app.post("/:id/book", requireLogin, async (req, res) => {
-  try {
+app.get("/:id/dashboard", requireLogin, async (req,res)=>{
     const id = req.params.id;
-    console.log(id);
-    const user = await User.findOne({ id });
-    const {
-      Email,
-      tel,
-      group,
-      country,
-      institute,
-      eventname,
-      numberOfTickets,
-    } = req.body;
-    console.log(req.body);
-    const ticket_booked = new Ticket({
-      Email,
-      tel,
-      group,
-      country,
-      institute,
-      eventname,
-      numberOfTickets,
-    });
-    await ticket_booked.save();
-    
+    const user= await User.findOne({ name:id}).populate("tickets");
+    console.log(user.tickets)
+    let booked_tickets =user.tickets;
+    if(req.session.user_id ==user._id)
+    res.render("dashboard", { user });
+    else
+    {
+      res.send("Permission denied");
+    }
+})
 
-    res.redirect(`/${id}/dashboard`);
-  } catch (e) {
-    req.flash("error", e.message);
-    res.render("login");
-  }
+app.get("/:id/book", requireLogin, async (req,res)=>{
+    const id = req.params.id;
+    const user= await User.findOne({name: id});
+    res.render("ticket", {user});
+})
+
+app.post("/:id/book", requireLogin, async(req,res)=>{
+    try{
+        const id = req.params.id;
+        const user= await User.findOne({name: id});
+        const {Email, tel, group, country,institute, numberOfTicket, eventname} =req.body;
+        const ticket_booked =new Ticket({
+            Email,tel,group,country,institute, numberOfTicket, eventname
+        });
+        user.tickets.push(ticket_booked);
+       
+        await ticket_booked.save();
+        await user.save();
+      
+        res.redirect(`/${id}/dashboard`)
+       
+
+    }catch (e) {
+        req.flash("error", e.message);
+        console.log(e);
+        res.render("login");
+    }
+
 });
 app.get("/contact", (req, res)=>{
   res.render("contactUs");
@@ -146,6 +142,7 @@ app.post("/signup", async (req, res) => {
     // res.render("dashboard", { user });
     id = name;
     res.redirect(`/${id}/dashboard`);
+    
   } catch (e) {
     req.flash("error", e.message);
     res.redirect("/signup");
