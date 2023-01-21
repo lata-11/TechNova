@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Sign up</title>
 
     <!-- CSS only -->
     <link
@@ -35,6 +35,7 @@
       crossorigin="anonymous"
     ></script> -->
 
+ 
     <link href="signup.css" rel="stylesheet" />
     <script
       src="https://kit.fontawesome.com/8d914b3d7d.js"
@@ -46,64 +47,34 @@
     <!--login-page-start-->
     <div class="login">
       <div class="login-card">
-        <div class="outer-login-image">
-          <div class="login-image">
-          <div class="login-image">
-            <a class="home-btn" href="index.html">Home</a>
-            <img class="dots" src="./images/Dot-PNG-HD.png" />
-            <img class="vector" src="./images/app-login-5188522-4346990.webp" />
-            <h4>Welcome to TechNova</h4>
-          </div>
-        </div>
-            <img class="dots" src="./images/Dot-PNG-HD.png" />
-            <img class="vector" src="./images/app-login-5188522-4346990.webp" />
-            <h4>Welcome to TechNova</h4>
-          </div>
-        </div>
-        <div class="login-form">
-          <div class="home home-btn">
-            <a href="/" class="new-home-btn">&larr;Home</a>
-          </div>
-          <div class="home home-btn">
-            <a href="/" class="new-home-btn">&larr;Home</a>
-          </div>
-          <h3>Log in your account</h3>
-          <form action="/login" method="post">
-            <label for="email">Email Address</label><br />
-            <input type="text" name="email" id="email" placeholder="Email" />
-            <br />
-
-            <br />
-
-            <label for="password">Enter password</label><br />
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-            />
-            <br />
-            <br />
-            <div class="create-btn">
-              <button type="submit" class="button create">Log in</button>
+          <div class="outer-login-image">
+            <div class="login-image">
+              <a class="home-btn" href="index.html">Home</a>
+              <img  class="dots" src="./images/Dot-PNG-HD.png" />
+              <img class="vector" src="./images/app-login-5188522-4346990.webp" />
+              <h4>Welcome to TechNova</h4>
             </div>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-            />
-            <br />
-            <br />
-            <div class="create-btn">
-              <button type="submit" class="button create">Log in</button>
+          </div>
+          <div class="login-form">
+            <div class="home home-btn">
+              <a href="/" class="new-home-btn">&larr;Home</a>
             </div>
-          </form>
-          <p>Don't have an account? <a href="/signup">Sign up</a></p>
-        </div>
+            <h3>Log in into account</h3>
+            <form action="/login" method="post">
+            
+              <label for="email">Email Address</label><br />
+              <input type="text" name="email" id="email" placeholder="Email" />
+              <br/>
+            
+              <label for="password">Enter password</label><br />
+              <input type="password" name="password" id="password" placeholder="Password" />
+              <br/>
+             <br/>
+              <button type="submit" class="button create acc-create">Create your account</button>
+            </form>
       </div>
+        
     </div>
-    <script src="./js/signup.js"></script>
-    <script src="./js/signup.js"></script>
   </body>
+  <script src="./js/signup.js"></script>
 </html>
