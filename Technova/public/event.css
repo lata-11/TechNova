@@ -51,3 +51,12 @@
 .active1{
     visibility: visible;
 }
+.card-booked {
+    width: 75%;
+    height: 35%;
+    margin-left: 17%;
+    margin-top: 5%;
+}
+.card-booked-1{
+    background-color: #1b2323 ;
+}

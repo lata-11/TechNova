@@ -82,7 +82,9 @@ app.get("/logout", (req, res) => {
 
 app.get("/:id/dashboard", requireLogin, async (req,res)=>{
     const id = req.params.id;
-    const user= await User.findOne({ name:id});
+    const user= await User.findOne({ name:id}).populate("tickets");
+    console.log(user.tickets)
+    let booked_tickets =user.tickets;
     if(req.session.user_id ==user._id)
     res.render("dashboard", { user });
     else
@@ -90,6 +92,7 @@ app.get("/:id/dashboard", requireLogin, async (req,res)=>{
       res.send("Permission denied");
     }
 })
+
 app.get("/:id/book", requireLogin, async (req,res)=>{
     const id = req.params.id;
     const user= await User.findOne({name: id});
@@ -104,9 +107,14 @@ app.post("/:id/book", requireLogin, async(req,res)=>{
         const ticket_booked =new Ticket({
             Email,tel,group,country,institute, numberOfTicket, eventname
         });
+        user.tickets.push(ticket_booked);
+       
         await ticket_booked.save();
-        console.log("hello");
+        await user.save();
+      
         res.redirect(`/${id}/dashboard`)
+       
+
     }catch (e) {
         req.flash("error", e.message);
         console.log(e);
@@ -114,24 +122,7 @@ app.post("/:id/book", requireLogin, async(req,res)=>{
     }
 
 });
-app.post("/:id/booked_ticket", requireLogin, async(req,res)=>{
-  try{
-      const id = req.params.id;
-      const user= await User.findOne({name: id});
-      const {Email, tel, group, country,institute, numberOfTicket, eventname} =req.body;
-      const ticket_booked =new Ticket({
-          Email,tel,group,country,institute, numberOfTicket, eventname
-      });
-      await ticket_booked.save();
-      console.log("hello");
-      res.redirect(`/${id}/dashboard`)
-  }catch (e) {
-      req.flash("error", e.message);
-      console.log(e);
-      res.render("login");
-  }
 
-});
 
 app.post("/signup", async (req, res) => {
   try {

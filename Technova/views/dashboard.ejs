@@ -59,75 +59,30 @@
     </div>
     <div class="my-tickets">
       <div class="card-deck">
-        <div class="card card--1">
-          <img
-            class="card-img-top card-1"
-            src="./../images/mic.jpeg"
-            alt="Card image cap"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Art room</h5>
-            <p class="card-text">
-              Cultural events are mainly related to art, culture, or values.
-              They last from day to week to spread and cultivate cultural
-              themes. They are usually executed by corporations or cultural
-              groups. And many companies specialize in the promotional marketing
-              of those events.
-            </p>
-            <div class="register">
-              <p class="card-text">
-                <small class="text-muted">120 tickets left</small>
-              </p>
-              <button class="register-btn">Book</button>
+      <% for(var i=0 ; i<user.tickets.length; i++){ %>
+       
+          <div class="card card-booked-1">
+            <img
+              class="card-img-top card-1 card-booked"
+              src="./../images/92-929657_tf19-online-raffle-ticket-ticket-vector.png"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title"><%=user.tickets[i].eventname %></h5>
+              
+              <div class="register">
+                <p class="card-text">
+                  <small class="text-muted"><%=user.tickets[i].numberOfTicket %></small>
+                </p>
+                <button class="booked-btn">Booked</button>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card card--2">
-          <img
-            class="card-img-top"
-            src="./../images/robot.jpeg"
-            alt="Card image cap"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Robo-Kart</h5>
-            <p class="card-text">
-              Robo-Kart is a catalyst for ambitious minds ready to explore the
-              ocean of opportunities. We inspire and build youngsters’ interest
-              in science and technology by engaging them in project based
-              exciting learning sessions by experts, cross border networking
-              platform to share knowledge and experience.
-            </p>
-            <div class="register">
-              <p class="card-text">
-                <small class="text-muted">120 tickets left</small>
-              </p>
-              <button class="register-btn">Book</button>
-            </div>
-          </div>
-        </div>
-        <div class="card card--3">
-          <img
-            class="card-img-top"
-            src="./../images/valorant.jpeg"
-            alt="Card image cap"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Game-way</h5>
-            <p class="card-text">
-              Nothing brings gamers together like a bit of competition. Whether
-              its World of Warcraft or the latest release of Mario Kart, these
-              games engender amazing amounts of community and togetherness. The
-              esports craze has inspired some of the most heated competitions
-              the world has ever seen.
-            </p>
-            <div class="register">
-              <p class="card-text">
-                <small class="text-muted">120 tickets left</small>
-              </p>
-              <button class="register-btn">Book</button>
-            </div>
-          </div>
-        </div>
+       
+        
+
+      
+      <%}%>
       </div>
     </div>
   
