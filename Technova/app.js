@@ -126,7 +126,9 @@ app.post("/:id/book", requireLogin, async (req, res) => {
     res.render("login");
   }
 });
-
+app.get("/contact", (req, res)=>{
+  res.render("contactUs");
+})
 app.post("/signup", async (req, res) => {
   try {
     const { name, email, password } = req.body;
