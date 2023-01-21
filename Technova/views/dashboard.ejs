@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TechNova</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
     <!-- CSS only -->
     <link
@@ -53,15 +54,43 @@
     <!--part-1-->
     <div class="Your-event">
       <div class="your-event-header">
-        <h2>Your Booked tickets</h2>
-        
+        <button class="booked_tickets">View your Booked tickets &rarr;</button>
       </div>
     </div>
+    <div class="my-tickets">
+      <div class="card-deck">
+      <% for(var i=0 ; i<user.tickets.length; i++){ %>
+       
+          <div class="card card-booked-1">
+            <img
+              class="card-img-top card-1 card-booked"
+              src="./../images/92-929657_tf19-online-raffle-ticket-ticket-vector.png"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title"><%=user.tickets[i].eventname %></h5>
+              
+              <div class="register">
+                <p class="card-text">
+                  <small class="text-muted"><%=user.tickets[i].numberOfTicket %></small>
+                </p>
+                <button class="booked-btn">Booked</button>
+              </div>
+            </div>
+          </div>
+       
+        
+
+      
+      <%}%>
+      </div>
+    </div>
+  
     <!--part-2-->
     <div class="event-card">
       <div class="event-content">
         <h2>You may like to book more tickets</h2>
-        <h5>Register now and book your tickets to TechNova!</h5>
+        <h5>Hurry up few seats remaining for TechNova!</h5>
       </div>
       <div class="card-deck">
         <div class="card card--1">
@@ -136,5 +165,12 @@
       </div>
     </div>
     <!--part-3-->
+    <script>
+      $(document).ready(function(){
+        $(".booked_tickets").click(function(){
+          $(".my-tickets").toggle();
+        });
+      });
+      </script>
   </body>
 </html>
