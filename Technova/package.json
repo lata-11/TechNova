@@ -10,6 +10,7 @@
     "flash": "^1.1.0",
     "mongoose": "^6.8.1",
     "nodemon": "^2.0.20",
+    "session": "^0.1.0",
     "uuid": "^9.0.0"
   },
   "name": "technova",

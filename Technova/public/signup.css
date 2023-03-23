@@ -86,8 +86,202 @@ body{
     margin-top: 3%;
 
 }
+.home
+{
+    visibility: hidden;
+}
 .create
 {
     background-color: #121617;
     color: white;
+}
+@media only screen and (max-width: 700px)
+{
+    #name
+    {
+        width: 50vw;
+    }
+    .new-home-btn
+    {
+        color: #121617;
+        text-decoration: none;
+    }
+    .login-card
+    {
+        position: relative;
+    }
+    .home-btn
+    {
+        margin: 0;
+        position: absolute;
+        top: 2%;
+        left: 2%;
+    }
+    .home
+    {
+        visibility: visible;
+    }
+    .outer-login-image{
+        display: none;
+    }
+    .login-card
+    {
+        display: grid;
+        grid-template-columns: 100%;
+        padding: 5% 10%;
+        height: 90vh;
+        /* background-color:#292d2e */
+    }
+    #password, #email{
+        width: 50vw;
+    }
+    .create-btn
+    {
+        margin: 0;
+        display: flex;
+            justify-content: center;
+    }
+    .button
+    {
+        margin: 0;
+    }
+    .acc-create
+    {
+        width: 50vw;
+    }
+    .google-signup
+    {
+        width: 50vw;
+    }
+}
+@media only screen and (max-width: 400px)
+{
+    .acc-create
+    {
+        width: 50vw;
+    }
+    .google-signup
+    {
+        width: 50vw;
+    }
+    .home-btn
+    {
+        margin: 0;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        margin-bottom: 2%;
+    }
+    .outer-login-image{
+        display: none;
+    }
+    .login-card
+    {
+        display: grid;
+        grid-template-columns: 100%;
+        padding:2%;
+        height:80vh;
+        /* background-color:#292d2e */
+    }
+    /* .button
+    {
+        width: 30vw;
+    } */
+    
+    
+}
+@media only screen and (max-width: 700px)
+{
+    #name
+    {
+        width: 50vw;
+    }
+    .new-home-btn
+    {
+        color: #121617;
+        text-decoration: none;
+    }
+    .login-card
+    {
+        position: relative;
+    }
+    .home-btn
+    {
+        margin: 0;
+        position: absolute;
+        top: 2%;
+        left: 2%;
+    }
+    .home
+    {
+        visibility: visible;
+    }
+    .outer-login-image{
+        display: none;
+    }
+    .login-card
+    {
+        display: grid;
+        grid-template-columns: 100%;
+        padding: 5% 10%;
+        height: 90vh;
+        /* background-color:#292d2e */
+    }
+    #password, #email{
+        width: 50vw;
+    }
+    .create-btn
+    {
+        margin: 0;
+        display: flex;
+            justify-content: center;
+    }
+    .button
+    {
+        margin: 0;
+    }
+    .acc-create
+    {
+        width: 50vw;
+    }
+    .google-signup
+    {
+        width: 50vw;
+    }
+}
+@media only screen and (max-width: 400px)
+{
+    .acc-create
+    {
+        width: 50vw;
+    }
+    .google-signup
+    {
+        width: 50vw;
+    }
+    .home-btn
+    {
+        margin: 0;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        margin-bottom: 2%;
+    }
+    .outer-login-image{
+        display: none;
+    }
+    .login-card
+    {
+        display: grid;
+        grid-template-columns: 100%;
+        padding:2%;
+        height:80vh;
+        /* background-color:#292d2e */
+    }
+    /* .button
+    {
+        width: 30vw;
+    } */
+    
+    
 }

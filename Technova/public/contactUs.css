@@ -1,0 +1,69 @@
+
+.contact-us-content
+{
+    background-color: #999999;
+    display: grid;
+    grid-template-columns: 45% 55%;
+}
+.contact-us
+{
+    padding: 5%;
+    background-color: #121617;
+}
+input
+{
+    background-color: #e8e7e7;
+    box-shadow: 0;
+    border-width: 1px;
+}
+
+.contact-btn
+{
+    display: grid;
+    place-items: center;
+}
+.contact-form
+{
+    background-color: white;
+}
+.contact-img
+{
+    display: grid;
+    padding: 5%;
+    place-items: center;
+    background-color: #404343;   
+    color: white;
+    text-align: center;
+}
+.image
+{
+    height: 60vh;
+    width: 30vw;
+}
+.contact-form
+{
+    padding: 5%;
+}
+.contact-form h3
+{
+    text-align: center;
+}
+.form-1
+{
+    padding: 5% 10%;
+}
+.form-1 input
+{
+    margin-bottom: 5%;
+    padding: 1%;
+    width: 100%;
+}
+#message
+{
+    background-color: #e8e7e7;
+    box-shadow: 0;
+    border-width: 1px;
+    width: 100%;
+    height: 50%;
+    margin-bottom: 5%;
+}
