@@ -5,6 +5,11 @@
     margin: 0;
     padding: 0;
 }
+.myMap
+{
+    width: 50vw;
+    height: 50vh;
+}
 body{
     background-color: #121617;
 }
@@ -212,4 +217,41 @@ body{
 .sub-footer p{
     text-align: center;
 
+}
+@media only screen and (max-width: 950px)
+{
+    .card-deck
+    {
+        display: grid;
+        grid-template-columns: auto auto;
+        row-gap: 5%;
+    }
+}
+@media only screen and (max-width: 700px)
+{
+    .footer
+    {
+        display: grid;
+        grid-template-columns: auto;
+        place-items: center;
+        padding-top: 5%;
+        margin: 0;
+    }
+    .myMap
+    {
+        width: 70vw;
+        height: 50vh;
+    }
+    .card-deck
+    {
+        display: grid;
+        grid-template-columns: auto;
+        place-items: center;
+        row-gap: 5%;
+    }
+    .sponsers
+    {
+        margin-top: 10%;
+        margin-bottom: 5%;
+    }
 }
