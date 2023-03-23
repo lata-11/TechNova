@@ -92,7 +92,11 @@ app.get("/:id/dashboard", requireLogin, async (req,res)=>{
       res.send("Permission denied");
     }
 })
+app.delete("/:id/dashboard",requireLogin, async (req,res)=>{
+  const id = req.params.id;
+  await User.findByIdAndDelete({id})
 
+} )
 app.get("/:id/book", requireLogin, async (req,res)=>{
     const id = req.params.id;
     const user= await User.findOne({name: id});
