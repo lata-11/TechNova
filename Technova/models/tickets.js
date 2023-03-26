@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const TicketSchema = new mongoose.Schema({
   group: {
     type: String,
@@ -29,6 +28,12 @@ const TicketSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  user:[
+    {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'signup',
+    }
+]
 });
 
 module.exports = mongoose.model("Ticket", TicketSchema);
