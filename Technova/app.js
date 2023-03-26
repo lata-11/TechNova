@@ -176,7 +176,6 @@ app.get("/:id/Delete", requireLogin, async(req, res)=>{
   res.redirect(`/${user}/dashboard`);
 });
 
-
 app.get("/:id/book", requireLogin, async (req,res)=>{
     const id = req.params.id;
     const user= await User.findOne({name: id});
