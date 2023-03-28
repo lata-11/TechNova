@@ -60,33 +60,37 @@
     <div class="my-tickets">
       <div class="card-deck">
       <% for(var i=0 ; i<user.tickets.length; i++){ %>
-       
+
           <div class="card card-booked-1">
             <img
               class="card-img-top card-1 card-booked"
               src="./../images/92-929657_tf19-online-raffle-ticket-ticket-vector.png"
               alt="Card image cap"
             />
-            <div class="card-body">
+            <div class="card-body book-card-body">
               <h5 class="card-title"><%=user.tickets[i].eventname %></h5>
-              
+
               <div class="register">
                 <p class="card-text">
                   <small class="text-muted"><%=user.tickets[i].numberOfTicket %></small>
                 </p>
+<<<<<<< HEAD
+                <button class="booked-btn"><a href="/<%=user.tickets[i]._id%>/delete">Unbook</a></button>
+=======
                 <button class="booked-btn">Booked</button>
                
+>>>>>>> f8b8178cdd49efea595ca433c177159507696f13
               </div>
             </div>
           </div>
-       
-        
 
-      
+
+
+
       <%}%>
       </div>
     </div>
-  
+
     <!--part-2-->
     <div class="event-card">
       <div class="event-content">
@@ -113,7 +117,7 @@
               <p class="card-text">
                 <small class="text-muted">120 tickets left</small>
               </p>
-              <button class="register-btn">Book</button>
+              <button class="register-btn"><a href="/<%=user.name%>/book">Book</a></button>
             </div>
           </div>
         </div>
@@ -136,7 +140,7 @@
               <p class="card-text">
                 <small class="text-muted">120 tickets left</small>
               </p>
-              <button class="register-btn">Book</button>
+              <button class="register-btn"><a href="/<%=user.name%>/book">Book</a></button>
             </div>
           </div>
         </div>
@@ -159,7 +163,7 @@
               <p class="card-text">
                 <small class="text-muted">120 tickets left</small>
               </p>
-              <button class="register-btn">Book</button>
+              <button class="register-btn"><a href="/<%=user.name%>/book">Book</a></button>
             </div>
           </div>
         </div>

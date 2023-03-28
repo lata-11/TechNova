@@ -1,4 +1,4 @@
-alert("hello");
+
 
 function resize(){
     if($(window).width()<700)
@@ -10,7 +10,6 @@ function resize(){
 $(window).on("resize", function(){
     resize()
 });
-alert("hello");
 
 function resize(){
     if($(window).width()<700)

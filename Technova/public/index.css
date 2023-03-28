@@ -10,6 +10,18 @@
     width: 50vw;
     height: 50vh;
 }
+.sponsers-1
+{
+    display: grid;
+    place-items: center;
+    margin-bottom: 5%;
+}
+.spon-img
+{
+    width: 80vw;
+    height: 20vh;
+
+}
 body{
     background-color: #121617;
 }
@@ -46,13 +58,17 @@ body{
 }
 /*part-1*/
 .part-1-img{
-   width: 98.9vw;
-   height: 90vh;
-   filter: brightness(50%);
+   width: 80vw;
+   height: 80vh;
+   image-resolution: 1000dpi;
+   filter: brightness(80%);
 
 }
 .part-1{
     margin-bottom: 5%;
+    display: grid;
+    place-items: center;
+    background-color: #000;
 }
 /*part-2*/
 .part-2{

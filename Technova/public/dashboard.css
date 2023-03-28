@@ -11,6 +11,11 @@
 .your-event-header > h2 {
   color: white;
 }
+.book-card-body
+{
+  padding: 5%;
+  height: 10vh;
+}
 
 
 .section {

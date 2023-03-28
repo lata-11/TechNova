@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Buy cool new product</title>
+    <link rel="stylesheet" href="product.css">
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+    <section>
+      <div class="product">
+        <div class="description">
+          <h1>Do you want to proceed</h1>
+        </div>
+      <form action="/create-checkout-session" method="POST">
+        <button type="submit" class="button1" id="checkout-button">Checkout</button>
+      </form>
+    </div>
+    </section>
+  </body>
+</html>
